@@ -1,0 +1,207 @@
+
+#panel1{
+  margin-left: 500px;
+  margin-top: 200px;
+  margin-right: 200px
+}
+#panel2{
+  margin-left: 500px;
+  margin-top: 200px;
+  margin-right: 200px
+}
+#btn{
+  margin-left: 300px;
+  margin-top: 70px
+}
+
+#btn2{
+  margin-left: 700px;
+  margin-top: -131px;
+}
+#btn3{
+  margin-left: 1100px;
+  margin-top: -131px;
+}
+.back{
+  margin-right: 65px;
+}
+#left{
+  margin-left: 40px;
+}
+#left2{
+  margin-left: 5px;
+}
+#left3{
+  margin-top:-50px;
+}
+.ll{
+  font-size: 15px;
+  margin-top: 5px;
+}
+.form1{
+  margin-left: 400px;
+  margin-top: 200px;
+}
+.img_res{
+  margin-left: -30px;
+  margin-top: 100px;
+}
+.restaurantnam{
+  margin-left: 350px; 
+  margin-top: -95px;
+}
+.resname{
+  margin-left: 350px; 
+  margin-top: -25px;
+}
+.desname{
+  margin-left: 350px; 
+  margin-top: -10px;
+}
+.restaurantdes{
+  margin-left: 350px; 
+  margin-top: 10px;
+}
+.age{
+  margin-left: 650px;
+  margin-top: -146px;
+}
+.ageinput{
+  margin-left: 650px;
+  margin-top: -48px;
+}
+.email{
+  margin-top: 10px;
+}
+.emailinput{
+  margin-left: 650px;
+  margin-top: -10px;
+}
+
+.divofdeleteinfo{
+  margin: 500px;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #eee;
+}
+
+/* navbar */
+.sidebar {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .9)), url(images/img1.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 5px 7px 25px #999;
+}
+
+.bottom-border {
+  border-bottom: 1px groove #eee;
+}
+
+.sidebar-link {
+  transition: all .4s;
+
+}
+
+.sidebar-link:hover {
+  background-color: #444;
+  border-radius: 5px;
+}
+
+.current {
+  background-color: #f44336;
+  border-radius: 7px;
+  box-shadow: 2px 5px 10px #111;
+  transition: all .3s;
+}
+
+.current:hover {
+  background-color: #f66436;
+  border-radius: 7px;
+  box-shadow: 2px 5px 20px #111;
+  transform: translateY(-1px);
+}
+
+.search-input {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid #999;
+  transition: all .4s;
+}
+
+.search-input:focus {
+  background: transparent;
+  box-shadow: none;
+  border-bottom: 2px solid #dc3545;
+}
+
+.search-button {
+  border-radius: 50%;
+  padding: 10px 16px;
+  transition: all .4s;
+}
+
+.search-button:hover {
+  background-color: #eee;
+  transform: translateY(-1px);
+}
+
+.icon-parent {
+  position: relative;
+}
+
+.icon-bullet::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 15px;
+  height: 12px;
+  width: 12px;
+  background-color: #f44336;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: static;
+    height: auto;
+  }
+
+  .top-navbar {
+    position: static;
+  }
+}
+/* end of navbar */
+
+/* cards */
+.card-common {
+  box-shadow: 1px 2px 5px #999;
+  transition: all .4s;
+}
+
+.card-common:hover {
+  box-shadow: 2px 3px 15px #999;
+  transform: translateY(-1px);
+}
+
+/* end of cards */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
