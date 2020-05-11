@@ -9,10 +9,16 @@
       $hoursoflesson=$_POST['hoursoflesson'];  
       $finalexam=$_POST['FinalExam'];  
       $vechialsoflesson=$_POST['vechialsoflesson'];
+      $dayofsession=$_POST['dayofsession'];
+      $timeofsession=$_POST['timeofsession'];
+      $placeofsession=$_POST['placeofsession'];
+
       $table_name="package" ;
-      $data = array('packagenum' => $packagenum ,'packageprice' => $packageprice,'hoursoflesson' => $hoursoflesson,'finalexam' => $finalexam,
-        'vechialsoflesson' =>$vechialsoflesson);
-      $data_insert->insert($table_name,$data);  
+      $data = array('packagenum' => $packagenum ,'packageprice' => $packageprice,
+        'hoursoflesson' => $hoursoflesson,'finalexam' => $finalexam,
+        'vechialsoflesson' =>$vechialsoflesson ,'dayofsession' =>$dayofsession,
+        'timeofsession' =>$timeofsession ,'placeofsession' =>$placeofsession);
+        $data_insert->insert($table_name,$data);  
   }
 
 ?>
@@ -46,7 +52,7 @@
               <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">Admin Dashboard</a>
               <div class="bottom-border pb-3">
                 <?php 
-                  $conn=mysqli_connect("localhost","root","admin","info");
+                  $conn=mysqli_connect("localhost","root","","info");
                  $select="select * from info WHERE groupid=0";
                   $result= mysqli_query($conn,$select);
                  while ($row = mysqli_fetch_array($result)) {
@@ -77,6 +83,11 @@
                    class="nav-item"><a href="Profile.php" class="nav-link text-white p-3 mb-2 sidebar-link">
                    <i class="fas fa-user text-light fa-lg mr-2 "></i>
                    update Profile</a> 
+                </li>
+                 <li 
+                   class="nav-item"><a href="viewrate.php" class="nav-link text-white p-3 mb-2 sidebar-link">
+                   <i class="fas fa-user text-light fa-lg mr-2 "></i>
+                   View Rate</a> 
                 </li>
                  <li 
                    class="nav-item"><a href="addpackage.php" class="nav-link text-white p-3 mb-2 sidebar-link">
@@ -188,68 +199,107 @@
     width: 500px;
     margin-top: 100px;
     margin-left: 500px;
-    margin-right: 500px;
     ">
     
     <p class="restaurantnam" style="
     margin-bottom: 10px;
-    margin-left: 250px;
+    margin-left: 150px;
     margin-top: 0px;
     ">Package number</p>
 
 
     <input type="text" name="packagenum" required="" style="
-    margin-left: 250px;
+    margin-left: 150px;
     margin-top: 0px;
     ">
      <p  style="
     margin-bottom: 10px;
-    margin-left: 250px;
+    margin-left: 150px;
     margin-top: 10px;
     ">Package price </p>
 
 
     <input type="text" name="packageprice"  required="" style="
-    margin-left: 250px;
+    margin-left: 150px;
     margin-top: 0px;
     ">
     <p  style="
     margin-bottom: 10px;
-    margin-left: 250px;
+    margin-left: 150px;
     margin-top: 10px;
     ">hours of lesson </p>
 
 
     <input type="text" name="hoursoflesson"  required="" style="
-    margin-left: 250px;
+    margin-left: 150px;
     margin-top: 0px;
     ">
     <p  style="
     margin-bottom: 10px;
-    margin-left: 250px;
+    margin-left: 150px;
     margin-top: 10px;
     ">Vechial of lesson </p>
 
 
     <input type="text" name="vechialsoflesson"  required="" style="
-    margin-left: 250px;
+    margin-left: 150px;
     margin-top: 0px;
     ">
 
      <p  style="
     margin-bottom: 10px;
-    margin-left: 250px;
-    margin-top: 10px;
+    margin-left: 450px;
+    width: 200px;
+    margin-top: -284px;
     ">Final Exam Free or not </p>
 
 
     <input type="text" name="FinalExam"  required="" style="
-    margin-left: 250px;
+    margin-left: 450px;
+    margin-top: 0px;
+    ">
+    <p  style="
+    margin-bottom: 10px;
+    margin-left: 450px;
+    margin-top: 10px;
+    width: 200px;
+
+    ">Day Of Session</p>
+
+
+    <input type="text" name="dayofsession"  required="" style="
+    margin-left: 450px;
+    margin-top: 0px;
+    ">
+    <p  style="
+    margin-bottom: 10px;
+    margin-left: 450px;
+        width: 200px;
+
+    margin-top: 10px;
+    ">Place Of Session</p>
+
+
+    <input type="text" name="placeofsession"  required="" style="
+    margin-left: 450px;
+    margin-top: 0px;
+    ">
+     <p  style="
+    margin-bottom: 10px;
+        width: 200px;
+
+    margin-left: 450px;
+    margin-top: 10px;
+    ">Time Of Session</p>
+
+
+    <input type="text" name="timeofsession"  required="" style="
+    margin-left: 450px;
     margin-top: 0px;
     ">
       
     <br>
-     <input type="submit" name="insert" style="margin-left: 300px;margin-top: 20px;width: 100px" class="Submit" value="Add">  
+     <input type="submit" name="insert" style="margin-left: 350px;margin-top: 50px;width: 100px" class="Submit" value="Add">  
    </form>
    </div>
           

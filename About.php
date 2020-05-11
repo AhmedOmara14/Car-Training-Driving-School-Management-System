@@ -1,6 +1,6 @@
 <?php  
    
-    $con = mysqli_connect("localhost","root","admin","info");  
+    $con = mysqli_connect("localhost","root","","info");  
     if(isset($_POST["login"])){     
       $myusername = mysqli_real_escape_string($con,$_POST['id']);
       $mypassword = mysqli_real_escape_string($con,$_POST['password']); 

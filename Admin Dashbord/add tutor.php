@@ -4,7 +4,7 @@
       if(isset($_POST["insert"]))  
       {  
       $target="images/".basename($_POST['img']);
-      $conn= mysqli_connect("localhost","root","admin","info");
+      $conn= mysqli_connect("localhost","root","","info");
       $name=$_POST['name'];
       $pass=$_POST['pass'];
       $image=$_POST['img'];  
@@ -12,7 +12,7 @@
       $packagenum=$_POST['packagenum']; 
       $table_name="info";
       $data = array('image' => $image ,'name' => $name,'pass' => $pass,'email' => $email,
-        'groupid' => '2','Regstatus' => '0');
+        'groupid' => '5','Regstatus' => '0');
     
       $data_insert->insert($table_name,$data);
       $sql = 
@@ -47,7 +47,7 @@
               <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">Admin Dashboard</a>
               <div class="bottom-border pb-3">
                <?php 
-                  $conn=mysqli_connect("localhost","root","admin","info");
+                  $conn=mysqli_connect("localhost","root","","info");
                   $select="select * from info WHERE groupid=0";
                   $result= mysqli_query($conn,$select);
                  while ($row = mysqli_fetch_array($result)) {
@@ -78,7 +78,11 @@
                    <i class="fas fa-user text-light fa-lg mr-2 "></i>
                    update Profile</a> 
                 </li>
-                
+                 <li 
+                   class="nav-item"><a href="viewrate.php" class="nav-link text-white p-3 mb-2 sidebar-link">
+                   <i class="fas fa-user text-light fa-lg mr-2 "></i>
+                   View Rate</a> 
+                </li>
                 <li 
                    class="nav-item"><a href="addpackage.php" class="nav-link text-white p-3 mb-2 sidebar-link">
                    <i class="fas fa-table text-light fa-lg mr-2 "></i>
@@ -184,31 +188,29 @@
     width: 10000px;
     height: 10000px;
     margin-top: 100px;
-">
+     ">
     <input type="file" name="img" class="img_res">
-
     <p class="restaurantnam" style="
     margin-bottom: 20px;
     ">User name of local tutor</p>
     <input type="text" name="name"style="margin-left:350px; " required="">
-    
     <p class="restaurantdes" style="
     height: 30px;
-">Password</p>
+    ">Password</p>
     <input type="Password" name="pass" class="desname" required="">
     <p class="age" style="
     margin-top: -158px;
     height: 30px;
     margin-bottom: 10px;
-">ID</p>
+    ">ID</p>
     <input type="text" name="email" class="ageinput" required="" style="
     margin-top: 0px;
-">
+    ">
     <p class="email" style="margin-left: 650px; margin-top: 20px;">package num</p>
     <input type="text" name="packagenum" class="emailinput" required="" style="
     margin-top: ‒1;
     margin-top: -3;
-">
+    ">
     
     <br>
      <input type="submit" name="insert" style="margin-left: 572px;margin-top: 30px;width: 66px;" class="Submit" value="Add">  
@@ -219,9 +221,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <script src="script.js"></script>
-
   </body>
 </html>
+
 
 
 

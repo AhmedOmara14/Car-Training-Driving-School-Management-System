@@ -23,19 +23,16 @@
             <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
               <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">Admin Dashboard</a>
               <div class="bottom-border pb-3">
-               <?php 
-                   session_start();
-                   $id=$_SESSION['id'];
-                   $pass=$_SESSION['pass'];
-                 
-                  $conn=mysqli_connect("localhost","root","admin","info");
-                 $select="SELECT * from info WHERE email='$id' AND pass='$pass' ";
+                <?php 
+                  $conn=mysqli_connect("localhost","root","","info");
+                 $select="select * from info WHERE groupid=0";
                   $result= mysqli_query($conn,$select);
                  while ($row = mysqli_fetch_array($result)) {
-                   
-                   echo '<a class="text-white" href="Profile.php" >Username :'.$row['name'].'</a>';
-                  }
 
+                   echo " <img width=50px height=50px class=rounded-circle mr-3 src='images/".$row['image']."'> ";
+
+                   echo '<a class="text-white" href="Profile.php" >'.$row['name'].'</a>';
+                  }
                  ?>
               
               </div>
@@ -46,6 +43,11 @@
                   class="nav-item">
                   <a href="index.php" class="nav-link text-white p-3 mb-2 sidebar-link "><i class="fas fa-home text-light fa-lg mr-2"></i>Dashboard</a>
 
+                </li>
+                 <li 
+                   class="nav-item"><a href="addadmin.php" class="nav-link text-white p-3 mb-2 sidebar-link">
+                   <i class="fas fa-user text-light fa-lg mr-2 "></i>
+                   Add Admin</a> 
                 </li>
                 <li 
                    class="nav-item"><a href="Profile.php" class="nav-link text-white p-3 mb-2 sidebar-link">
@@ -86,7 +88,7 @@
                  </a>
                  <div class="dropdown-menu"
                      x-placement="right-start" 
-                     style="position: absolute; transform: translate3d(108px, 0px, 0px); top: 390px; left: 143px;">
+                     style="position: absolute; transform: translate3d(108px, 100px, 0px); top: 390px; left: 143px;">
                 <a class="dropdown-item" href="viewcars.php">view cars</a>
                 <a class="dropdown-item" href="updateinfoofcar.php">update info about car</a>
                 <a class="dropdown-item" href="deleteinfoofcar.php">delete info about cars</a>
@@ -160,7 +162,7 @@
   </thead>
   <tbody>
      <?php
-         $conn=mysqli_connect("localhost","root","admin","info");
+         $conn=mysqli_connect("localhost","root","","info");
           if ($conn) {
             $sql="SELECT packagenum,vechialsoflesson from package ";
             $result=mysqli_query($conn,$sql); 

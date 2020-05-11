@@ -1,18 +1,17 @@
 
 <?php
-        session_start();
-        $id1=$_SESSION['id'];
-        $pass1=$_SESSION['pass'];
-          include 'Databases.php';
+       include 'Databases.php';
        $data_update=new Databases;
       if(isset($_POST["insert"]))  
       {  
+      $target="images/".basename($_POST['img']);
       $name=$_POST['username'];
       $pass=$_POST['password'];
+      $image=$_POST['img'];  
       $email=$_POST['email'];
       $table_name="info";
-      $data = array( 'name' => $name ,'pass' => $pass ,'email' => $email,'groupid' => '1','Regstatus' => '0');
-      $condition = array('email' =>$id1,'pass' =>$pass1);
+      $data = array('image' => $image , 'name' => $name ,'pass' => $pass ,'email' => $email,'groupid' => '0','Regstatus' => '0');
+      $condition = array('groupid' =>'0');
       $data_update->update($table_name,$data,$condition);
      
   }
@@ -35,7 +34,7 @@
     
     
  <nav class="navbar navbar-expand-md navbar-light">
-      <button class="navbar-toggler ml-auto mb-2 bg-light" type="button" data-toggle=" collapse" data-target="#myNavbar">
+      <button class="navbar-toggler ml-auto mb-2 bg-light" type="button" data-toggle="collapse" data-target="#myNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="myNavbar">
@@ -44,21 +43,22 @@
             
             <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
               <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">Admin Dashboard</a>
-             <div class="bottom-border pb-3">
-               <?php 
-                  
-                 
-                  $conn=mysqli_connect("localhost","root","admin","info");
-                 $select="SELECT * from info WHERE email='$id1' AND pass='$pass1' ";
+              <div class="bottom-border pb-3">
+                <?php 
+                  $conn=mysqli_connect("localhost","root","","info");
+                 $select="select * from info WHERE groupid=0";
                   $result= mysqli_query($conn,$select);
                  while ($row = mysqli_fetch_array($result)) {
-                  
-                   echo '<a class="text-white" href="Profile.php" >Username :'.$row['name'].'</a>';
+
+                   echo " <img width=50px height=50px class=rounded-circle mr-3 src='images/".$row['image']."'> ";
+
+                   echo '<a class="text-white" href="Profile.php" >'.$row['name'].'</a>';
+                
                   }
 
                  ?>
               
-              </div>
+            </div>
 
            <ul 
                 class="navbar-nav flex-column mt-4">
@@ -66,6 +66,11 @@
                   class="nav-item">
                   <a href="index.php" class="nav-link text-white p-3 mb-2 sidebar-link "><i class="fas fa-home text-light fa-lg mr-2"></i>Dashboard</a>
 
+                </li>
+                 <li 
+                   class="nav-item"><a href="addadmin.php" class="nav-link text-white p-3 mb-2 sidebar-link">
+                   <i class="fas fa-user text-light fa-lg mr-2 "></i>
+                   Add Admin</a> 
                 </li>
                 <li 
                    class="nav-item"><a href="Profile.php" class="nav-link text-white p-3 mb-2 sidebar-link">
@@ -126,7 +131,7 @@
                    </a>
                     <div class="dropdown-menu"
                      x-placement="right-start" 
-                     style="position: absolute; transform: translate3d(108px, 0px, 0px); top: 0px; left: 130px;">
+                     style="position: absolute; transform: translate3d(108px, 100px, 0px); top: 0px; left: 130px;">
                 <a class="dropdown-item" href="add tutor.php">add local tutor</a>
                 <a class="dropdown-item" href="approveordisapproveaboutremote.php">approve remote tutor</a>
                 
@@ -177,7 +182,7 @@
     margin-left: 500px;
     margin-right: 500px;
     ">
-    
+    <input type="file" name="img" style="margin-left: 250px;margin-bottom: 10px;margin-top: -20;">
     <br>
     <p class="restaurantnam" style="
     margin-bottom: 10px;
@@ -196,7 +201,7 @@
     margin-bottom: 10px;
     margin-left: 250px;
     margin-top: 10px;
-    ">ID</p>
+    ">ID </p>
 
 
     <input type="text" name="email" class="resname" required="" style="

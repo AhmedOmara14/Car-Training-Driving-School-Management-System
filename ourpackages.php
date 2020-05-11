@@ -26,7 +26,7 @@
           header("location: Remote tutor/index.php");
         }
         else if ($groupid==2) {
-          header("location: Local student/index.php");
+          header("location: Local student/home.php");
         }
         else if ($groupid==3) {
           header("location: remote student/index.php");
@@ -128,11 +128,11 @@
               <div class="col-md pr-4 d-flex topper align-items-center">
                 <div class="icon mr-2 d-flex justify-content-center align-items-center">
                   <span class="icon-phone2"></span></div>
-                <span class="text">+ 01093473057</span>
+                <span class="text">+020</span>
               </div>
               <div class="col-md pr-4 d-flex topper align-items-center">
                 <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
-                <span class="text">ahmedomaea53@email.com</span>
+                <span class="text">teamsw1@email.com</span>
 
               </div>
             </div>

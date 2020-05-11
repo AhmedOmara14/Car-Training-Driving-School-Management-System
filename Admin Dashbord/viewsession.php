@@ -24,7 +24,7 @@
               <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">Admin Dashboard</a>
               <div class="bottom-border pb-3">
                 <?php 
-                  $conn=mysqli_connect("localhost","root","admin","info");
+                  $conn=mysqli_connect("localhost","root","","info");
                  $select="select * from info WHERE groupid=0";
                   $result= mysqli_query($conn,$select);
                  while ($row = mysqli_fetch_array($result)) {
@@ -53,6 +53,11 @@
                    class="nav-item"><a href="Profile.php" class="nav-link text-white p-3 mb-2 sidebar-link">
                    <i class="fas fa-user text-light fa-lg mr-2 "></i>
                    update Profile</a> 
+                </li>
+                 <li 
+                   class="nav-item"><a href="viewrate.php" class="nav-link text-white p-3 mb-2 sidebar-link">
+                   <i class="fas fa-user text-light fa-lg mr-2 "></i>
+                   View Rate</a> 
                 </li>
                  <li 
                    class="nav-item"><a href="addpackage.php" class="nav-link text-white p-3 mb-2 sidebar-link">
@@ -163,6 +168,9 @@
       <th scope="col">Rate</th>
       <th scope="col">Final Exam</th>
       <th scope="col">hours of lesson</th>
+      <th scope="col">Day of lesson</th>
+      <th scope="col">Place of lesson</th>
+      <th scope="col">Time of lesson</th>
 
     </tr>
   </thead>
@@ -182,6 +190,9 @@
                     <td>".$row['rate']."</td>
                     <td>".$row['finalexam']."</td>
                     <td>".$row['hoursoflesson']."</td>
+                    <td>".$row['dayofsession']."</td>
+                    <td>".$row['placeofsession']."</td>
+                    <td>".$row['timeofsession']."</td>
                    </tr>
                 ";
               }

@@ -1,6 +1,6 @@
 <?php  
    session_start();
-   $con = mysqli_connect("localhost","root","admin","info");  
+   $con = mysqli_connect("localhost","root","","info");  
     if(isset($_POST["login"])){     
       $myusername = mysqli_real_escape_string($con,$_POST['id']);
       $mypassword = mysqli_real_escape_string($con,$_POST['password']); 
@@ -16,8 +16,6 @@
       $_SESSION['id']=$email;
       $_SESSION['pass']=$pass;
       $count = mysqli_num_rows($result);
-            
-
        if($count == true) {
         if ($groupid==0) {
           header("location: Admin Dashbord/index.php");
@@ -27,6 +25,10 @@
           header("location: Admin/index.php");
           
         }
+         else if ($groupid==5) {
+          header("location: localtutor/index.php");
+          
+        }
         else if ($groupid==4 AND $Regstatus==1) {
           echo '<script>alert("Waiting for your approval !")</script>';
         }
@@ -34,19 +36,15 @@
           header("location: Remote tutor/index.php");
         }
         else if ($groupid==2) {
-          header("location: Local student/index.php");
+          header("location: Localstudent/home.php");
         }
         else if ($groupid==3) {
-          header("location: remote student/index.php");
+          header("location: remotestudent/homeremote.php");
         }
-        else if ($groupid==4) {
-          header("location: remote tutor/index.php");
         }
-      
-        
       }else {
       }
-   }
+ 
 ?>
 
 <!DOCTYPE html>
@@ -99,11 +97,11 @@
             <div class="row d-flex">
               <div class="col-md pr-4 d-flex topper align-items-center">
                 <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
-                <span class="text">+ 01093473057</span>
+                <span class="text">+ 020</span>
               </div>
               <div class="col-md pr-4 d-flex topper align-items-center">
                 <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
-                <span class="text">ahmedomaea53@email.com</span>
+                <span class="text">teamsw1@email.com</span>
 
               </div>
             </div>

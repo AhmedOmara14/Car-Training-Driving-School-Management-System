@@ -1,17 +1,15 @@
 <?php
-   $conn=mysqli_connect("localhost","root","admin","info");
+   $conn=mysqli_connect("localhost","root","","info");
  if (isset($_POST['approve'])) {
      $email=$_POST['email'];
     $sql="UPDATE info set REgstatus='0' where email='$email'";
     mysqli_query($conn,$sql);
  }
- else {
+ else if (isset($_POST['disapprove'])) {
     $email=$_POST['email'];
-    $sql="DELETE FROM info where email='$email'";
+    $sql="DELETE FROM info WHERE email='$email'";
     mysqli_query($conn,$sql);
  }
-
-
 
 ?>
 <html lang="en">
@@ -69,6 +67,11 @@
                    class="nav-item"><a href="Profile.php" class="nav-link text-white p-3 mb-2 sidebar-link">
                    <i class="fas fa-user text-light fa-lg mr-2 "></i>
                    update Profile</a> 
+                </li>
+                 <li 
+                   class="nav-item"><a href="viewrate.php" class="nav-link text-white p-3 mb-2 sidebar-link">
+                   <i class="fas fa-user text-light fa-lg mr-2 "></i>
+                   View Rate</a> 
                 </li>
                  <li 
                    class="nav-item"><a href="addpackage.php" class="nav-link text-white p-3 mb-2 sidebar-link">
@@ -177,7 +180,7 @@
       <th scope="col">Disapprove</th>
     </tr>
       <?php
-         $conn=mysqli_connect("localhost","root","admin","info");
+         $conn=mysqli_connect("localhost","root","","info");
             $sql="SELECT name,email from info WHERE  Regstatus=1";
             $result=mysqli_query($conn,$sql); 
                $sr=1;
@@ -192,7 +195,7 @@
                        <input type="submit" class="btn btn-success" data-dismiss="modal" name="approve" value="Approve">
                        </td>
                        <td>
-                       <input  type="submit" name="disaprove" value="DisApprove" class="btn btn-danger" data-dismiss="modal">
+                       <input  type="submit" name="disapprove" value="DisApprove" class="btn btn-danger" data-dismiss="modal">
                        </td>
                    </form>
                    </tr>

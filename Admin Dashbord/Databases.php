@@ -6,7 +6,7 @@
  	    public $con;  
       public function __construct()  
       {  
-           $this->con = mysqli_connect("localhost","root","admin","info");  
+           $this->con = mysqli_connect("localhost","root","","info");  
            if(!$this->con)  
            {  
                 echo 'Database Connection Error ' . mysqli_connect_error($this->con);  

@@ -1,4 +1,17 @@
-<!doctype html>
+<?php
+   $conn=mysqli_connect("localhost","root","","info");
+ if (isset($_POST['approve'])) {
+     $email=$_POST['email'];
+    $sql="UPDATE info set REgstatus='0' where email='$email'";
+    mysqli_query($conn,$sql);
+ }
+ else if (isset($_POST['disapprove'])) {
+    $email=$_POST['email'];
+    $sql="DELETE FROM info WHERE email='$email'";
+    mysqli_query($conn,$sql);
+ }
+
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -21,18 +34,17 @@
             <!-- sidebar -->
             <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
               <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">Admin Dashboard</a>
-             <div class="bottom-border pb-3">
+              <div class="bottom-border pb-3">
                 <?php 
-                   session_start();
-                   $id=$_SESSION['id'];
-                   $pass=$_SESSION['pass'];
-                 
                   $conn=mysqli_connect("localhost","root","admin","info");
-                 $select="SELECT * from info WHERE email='$id' AND pass='$pass' ";
+                 $select="select * from info WHERE groupid=0";
                   $result= mysqli_query($conn,$select);
                  while ($row = mysqli_fetch_array($result)) {
-               
-                   echo '<a class="text-white" href="Profile.php" >Username :'.$row['name'].'</a>';
+
+                   echo " <img width=50px height=50px class=rounded-circle mr-3 src='images/".$row['image']."'> ";
+
+                   echo '<a class="text-white" href="Profile.php" >'.$row['name'].'</a>';
+                
                   }
 
                  ?>
@@ -45,6 +57,11 @@
                   class="nav-item">
                   <a href="index.php" class="nav-link text-white p-3 mb-2 sidebar-link "><i class="fas fa-home text-light fa-lg mr-2"></i>Dashboard</a>
 
+                </li>
+                 <li 
+                   class="nav-item"><a href="addadmin.php" class="nav-link text-white p-3 mb-2 sidebar-link">
+                   <i class="fas fa-user text-light fa-lg mr-2 "></i>
+                   Add Admin</a> 
                 </li>
                 <li 
                    class="nav-item"><a href="Profile.php" class="nav-link text-white p-3 mb-2 sidebar-link">
@@ -85,7 +102,7 @@
                  </a>
                  <div class="dropdown-menu"
                      x-placement="right-start" 
-                     style="position: absolute; transform: translate3d(108px, 0px, 0px); top: 390px; left: 143px;">
+                     style="position: absolute; transform: translate3d(108px, 100px, 0px); top: 390px; left: 143px;">
                 <a class="dropdown-item" href="viewcars.php">view cars</a>
                 <a class="dropdown-item" href="updateinfoofcar.php">update info about car</a>
                 <a class="dropdown-item" href="deleteinfoofcar.php">delete info about cars</a>
@@ -148,11 +165,41 @@
           </div>
         </div>
       </div>
-    </nav>
-    
-          
+  </nav>
 
-  
+    <table class="table table-striped table-dark" style="margin-left: 249px;margin-top: 45px;width: 1300px;">
+    <tr>
+      <th scope="col">name </th>
+      <th scope="col">ID</th>
+      <th scope="col">Approve</th>
+      <th scope="col">Disapprove</th>
+    </tr>
+      <?php
+         $conn=mysqli_connect("localhost","root","","info");
+            $sql="SELECT name,email from info WHERE  Regstatus=1";
+            $result=mysqli_query($conn,$sql); 
+               $sr=1;
+              while ( $row = $result-> fetch_assoc()) {
+                   ?>
+              
+                   <tr>
+                   <form method="post">
+                       <td><?php echo $row['name']?></td>
+                       <td><input type="result" name="email"value=<?php echo $row['email']?>></td>
+                       <td>   
+                       <input type="submit" class="btn btn-success" data-dismiss="modal" name="approve" value="Approve">
+                       </td>
+                       <td>
+                       <input  type="submit" name="disapprove" value="DisApprove" class="btn btn-danger" data-dismiss="modal">
+                       </td>
+                   </form>
+                   </tr>
+                
+               <?php
+                $sr++;}
+                ?>  
+  </table> 
+    
       
    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -162,9 +209,3 @@
 
   </body>
 </html>
-
-
-
-
-
-

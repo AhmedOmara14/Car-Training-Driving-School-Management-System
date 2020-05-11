@@ -2,7 +2,7 @@
     include 'Databases.php';
     $data_delete=new Databases;
     if (isset($_POST["delete"])) {
-      $conn=mysqli_connect("localhost","root","admin","info");
+      $conn=mysqli_connect("localhost","root","","info");
       $packagenum=$_POST['packagenum'];
       $vechial=$_POST['vechial'];
       $table_name="package";
@@ -39,7 +39,7 @@
               <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">Admin Dashboard</a>
               <div class="bottom-border pb-3">
                <?php 
-                  $conn=mysqli_connect("localhost","root","admin","info");
+                  $conn=mysqli_connect("localhost","root","","info");
                  $select="select * from info WHERE groupid=0";
                   $result= mysqli_query($conn,$select);
                  while ($row = mysqli_fetch_array($result)) {
@@ -70,12 +70,18 @@
                    class="nav-item"><a href="Profile.php" class="nav-link text-white p-3 mb-2 sidebar-link">
                    <i class="fas fa-user text-light fa-lg mr-2 "></i>
                    update Profile</a> 
+                 </li>
+                  <li 
+                   class="nav-item"><a href="viewrate.php" class="nav-link text-white p-3 mb-2 sidebar-link">
+                   <i class="fas fa-user text-light fa-lg mr-2 "></i>
+                   View Rate</a> 
+                </li>
                     <li 
                    class="nav-item"><a href="addpackage.php" class="nav-link text-white p-3 mb-2 sidebar-link">
                    <i class="fas fa-table text-light fa-lg mr-2 "></i>
                    Add Package</a> 
                 </li>
-                </li>
+              
                 <li
                    class="nav-item">
                    <a 
