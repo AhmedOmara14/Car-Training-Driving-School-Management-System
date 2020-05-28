@@ -1,9 +1,8 @@
-
 <?php
+public function addpackage(){
   include 'Databases.php';
   $data_insert=new Databases;
-  if(isset($_POST["insert"]))  
-      {  
+  if(isset($_POST["insert"])){  
       $packagenum=$_POST['packagenum'];
       $packageprice=$_POST['packageprice'];
       $hoursoflesson=$_POST['hoursoflesson'];  
@@ -12,7 +11,6 @@
       $dayofsession=$_POST['dayofsession'];
       $timeofsession=$_POST['timeofsession'];
       $placeofsession=$_POST['placeofsession'];
-
       $table_name="package" ;
       $data = array('packagenum' => $packagenum ,'packageprice' => $packageprice,
         'hoursoflesson' => $hoursoflesson,'finalexam' => $finalexam,
@@ -20,7 +18,7 @@
         'timeofsession' =>$timeofsession ,'placeofsession' =>$placeofsession);
         $data_insert->insert($table_name,$data);  
   }
-
+}
 ?>
 
  

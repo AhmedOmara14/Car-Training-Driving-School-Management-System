@@ -31,7 +31,7 @@
         else if ($groupid==3) {
           header("location: remote student/index.php");
         }
-        else if ($groupid==4) {
+        else if ($groupid==4 AND $Regstatus==0) {
           header("location: remote tutor/index.php");
         }
       

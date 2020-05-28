@@ -40,7 +40,6 @@ background-color: #4CAF50;
       <th scope="col">Package price</th>
       <th scope="col">vechial of lesson</th>
       <th scope="col">instructor</th>
-      <th scope="col">Rate</th>
       <th scope="col">Final Exam</th>
       <th scope="col">hours of lesson</th>
 
@@ -65,7 +64,6 @@ background-color: #4CAF50;
                     <td><?php echo $row['packageprice']?></td>
                     <td><?php echo $row['vechialsoflesson']?></td>
                     <td><?php echo $row['vechialsoflesson']?></td>
-                    <td><?php echo $row['rate']?></td>
                     <td><?php echo $row['finalexam']?></td>
                     <td><?php echo $row['hoursoflesson']?></td>
         

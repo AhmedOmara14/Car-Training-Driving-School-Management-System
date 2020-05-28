@@ -9,10 +9,7 @@
     $pack_num=$_POST['pack_num'];
     $data = array('id' => $id ,'packagenum' => $pack_num);
     $data_insert->insert('packages_selection',$data);
-    
  }
-
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -49,7 +46,6 @@
       <th scope="col">Package price</th>
       <th scope="col">vechial of lesson</th>
       <th scope="col">instructor</th>
-      <th scope="col">Rate</th>
       <th scope="col">Final Exam</th>
       <th scope="col">hours of lesson</th>
       <th scope="col">Select</th>
@@ -72,7 +68,6 @@
                     <td><?php echo $row['vechialsoflesson']?></td>
                       <td><?php echo $row['instructoroflesson']?></td>
 
-                    <td><?php echo $row['rate']?></td>
                     <td><?php echo $row['finalexam']?></td>
                     <td><?php echo $row['hoursoflesson']?></td>
                      <td>

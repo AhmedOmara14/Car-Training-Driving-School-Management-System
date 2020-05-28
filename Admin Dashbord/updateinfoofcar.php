@@ -1,21 +1,15 @@
 <?php
+public function updateinfo(){
         include 'Databases.php';
        $data_update=new Databases;
       if (isset($_POST["insert"])) {
-
       $packagenum=$_POST['packagenum'];
       $vechial=$_POST['vechial'];
-     
-       
        $data = array('vechialsoflesson' => $vechial );
        $condition = array('packagenum' =>$packagenum);
        $data_update->update('package',$data,$condition);
-    }
-    
+    }}
 ?>
-
-
-
 <!doctype html>
 <html lang="en">
   <head>

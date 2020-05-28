@@ -181,10 +181,7 @@
                     <td>".$row['name']."</td>
                     <td>".$row['email']."</td>
                    </tr>
-                ";
-              }
-            }
-          }
+                ";}}}
       ?>
     
   </tbody>

@@ -1,4 +1,8 @@
 <?php
+public function add tutor()
+{
+  
+
       include 'Databases.php';
       $data_insert=new Databases;
       if(isset($_POST["insert"]))  
@@ -20,6 +24,7 @@
       $h=mysqli_query($conn,$sql); 
       
   }
+}
   ?>
 
 <!doctype html>

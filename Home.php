@@ -26,14 +26,14 @@
           
         }
          else if ($groupid==5) {
-          header("location: localtutor/index.php");
+          header("location: tutor/local.php");
           
         }
         else if ($groupid==4 AND $Regstatus==1) {
           echo '<script>alert("Waiting for your approval !")</script>';
         }
        else if ($groupid==4 AND $Regstatus==0) {
-          header("location: Remote tutor/index.php");
+          header("location: tutor/remote.php");
         }
         else if ($groupid==2) {
           header("location: Localstudent/home.php");

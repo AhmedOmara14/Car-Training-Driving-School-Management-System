@@ -1,4 +1,7 @@
 <?php
+public function approveordis()
+{
+
    $conn=mysqli_connect("localhost","root","","info");
  if (isset($_POST['approve'])) {
      $email=$_POST['email'];
@@ -10,7 +13,7 @@
     $sql="DELETE FROM info WHERE email='$email'";
     mysqli_query($conn,$sql);
  }
-
+}
 ?>
 <html lang="en">
   <head>

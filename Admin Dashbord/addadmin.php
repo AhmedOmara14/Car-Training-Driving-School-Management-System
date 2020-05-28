@@ -1,4 +1,7 @@
 <?php
+public function addadmin()
+{
+
       include 'Databases.php';
       $data_insert=new Databases;
       if(isset($_POST["insert"]))  
@@ -15,6 +18,7 @@
       $data_insert->insert($table_name,$data);
        
   }
+}
   ?>
 
 <!doctype html>

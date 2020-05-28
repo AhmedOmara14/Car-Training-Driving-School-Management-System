@@ -25,12 +25,10 @@
               <div class="bottom-border pb-3">
                 <?php 
                   $conn=mysqli_connect("localhost","root","","info");
-                 $select="select * from info WHERE groupid=0";
+                  $select="select * from info WHERE groupid=0";
                   $result= mysqli_query($conn,$select);
                  while ($row = mysqli_fetch_array($result)) {
-
                    echo " <img width=50px height=50px class=rounded-circle mr-3 src='images/".$row['image']."'> ";
-
                    echo '<a class="text-white" href="Profile.php" >'.$row['name'].'</a>';
                   }
                  ?>
@@ -179,10 +177,7 @@
                     <td>".$row['vechialsoflesson']."</td>
                    </tr>
                 ";
-              }
-            }
-          }
-
+              } } }
       ?>
   </tbody>
 </table>
